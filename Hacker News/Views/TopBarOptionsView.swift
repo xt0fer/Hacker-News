@@ -31,7 +31,7 @@ struct TopBarOptionsView: View {
                 Image(systemName: topScore ? "bolt.fill":"bolt")
             })
             Button {
-                readAll.toggle()
+                //readAll.toggle()
             } label: {
                 HStack(spacing: 3) {
                     Image(systemName: "eye")
@@ -40,7 +40,7 @@ struct TopBarOptionsView: View {
                 }
                 .frame(width: 65)
             }
-            .opacity(unreadStories > 0 ? 1:0 )
+            //.opacity(unreadStories > 0 ? 1:0 )
         }
         .foregroundColor(.gray)
         .padding(5)
