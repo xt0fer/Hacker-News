@@ -32,20 +32,43 @@ struct ContentView: View {
     // Captured in the List view using onChange modifier.
     @Environment(\.scenePhase) var scenePhase
 
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+
     var body: some View {
         
         // Display story cell wrapped in a button.
         // When tapped it triggers a Sheet View and load the url content.
-        List {
-            ForEach(storyController.stories) { story in
-                Button {
-                    selectedStory = story
-                    showWebView.toggle()
-                } label: {
-                    StoryCellView(story: .constant(story))
-                        .padding([.top, .bottom], 5)
+//        List {
+//            ForEach(storyController.stories) { story in
+//                Button {
+//                    selectedStory = story
+//                    showWebView.toggle()
+//                } label: {
+//                    StoryCellView(story: .constant(story))
+//                        .padding([.top, .bottom], 5)
+//                }
+//            }
+//        }
+        ScrollView {
+            LazyVGrid(columns: columns) {
+                ForEach(storyController.stories) { story in
+                    Button {
+                        selectedStory = story
+                        showWebView.toggle()
+                    } label: {
+                        StoryCellView(story: .constant(story))
+                            .padding([.top, .bottom, .leading, .trailing], 10)
+
+                    }
+                    .background(.orange)
+                    .opacity(0.6)
+                    .cornerRadius(15)
                 }
             }
+            .padding([.leading, .trailing], 10)
         }
         .listStyle(GroupedListStyle())
         // Show alert if request error occurs on a published property `fetchError`

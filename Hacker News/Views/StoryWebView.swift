@@ -36,7 +36,7 @@ struct StoryWebView: View {
                     
                     // Mocking a top bar to display the story title,
                     // a progress bar activity, and button to launch the story in the device's default browser
-                    Color.red
+                    Color.orange
                         .frame(width: geometry.size.width, height: 75)
                     
                     HStack {

@@ -24,10 +24,11 @@ struct StoryCellView: View {
     }()
     
     var body: some View {
-        VStack(alignment:.leading, spacing: 0) {
+        VStack(alignment:.leading, spacing: 3) {
             Text(story.title)
                 .font(.headline)
-                .fontWeight(.medium)
+                .fontWeight(.heavy)
+                
             if let url = URL(string: story.url)?.host {
                 Text("\(url)")
                     .font(.caption)
@@ -42,7 +43,7 @@ struct StoryCellView: View {
                 Text("\(Image(systemName: "bolt"))\(story.score)")
                     .font(.caption)
             }
-            .opacity(0.5)
+            .opacity(0.8)
         }
         .foregroundColor(story.read ?? false ? .gray : .primary)
     }
