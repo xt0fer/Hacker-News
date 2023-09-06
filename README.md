@@ -1,6 +1,18 @@
 # Hacker-News
 Hacker News App using SwiftUI
 
+
+_Nota Bene:_
+
+@xt0fer / @kristofer have modified this to make it more "iPad"-ish. How? 
+Well, by make the list a lozenge based two column collectionview, and (eventually) adding some more controls to the Browser sheet of selected story.
+
+as of (Sept 2023), I have not looked at what the app stores in UserDefaults, but am wondering about a big cache in iCloud to show status of stories that appear in both New/Top categories.
+
+I'd like to add a Share Extension to allow the stories to be PIN'd by either pinboard or LinkDing.
+
+_Alexandre's Original README_
+
 I have been challenged to create a mobile application development task consuming an API.
 
 HackerNews (https://news.ycombinator.com/) is a popular social news website focused on computer science and entrepreneurship. 

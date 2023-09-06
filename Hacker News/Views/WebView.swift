@@ -16,8 +16,12 @@ struct WebView: UIViewRepresentable {
     // The story url
     let urlString: String?
     
+    let webview = WKWebView()
+
+    
     func makeUIView(context: Context) -> WKWebView  {
-        return WKWebView()
+        webview.allowsBackForwardNavigationGestures = true
+        return webview
     }
     
     func updateUIView(_ webView: WKWebView, context: Context) {
@@ -32,6 +36,15 @@ struct WebView: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
+    
+    func goBack(){
+        webview.goBack()
+    }
+
+    func goForward(){
+        webview.goForward()
+    }
+
     
     // Delegation
     class Coordinator: NSObject, WKNavigationDelegate {
