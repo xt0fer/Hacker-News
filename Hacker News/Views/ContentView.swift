@@ -53,22 +53,24 @@ struct ContentView: View {
 //            }
 //        }
         ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(storyController.stories) { story in
-                    Button {
-                        selectedStory = story
-                        showWebView.toggle()
-                    } label: {
-                        StoryCellView(story: .constant(story))
-                            .padding([.top, .bottom, .leading, .trailing], 10)
-
+            HStack(alignment: .top) {
+                LazyVGrid(columns: columns) {
+                    ForEach(storyController.stories) { story in
+                        Button {
+                            selectedStory = story
+                            showWebView.toggle()
+                        } label: {
+                            StoryCellView(story: .constant(story))
+                                .padding([.top, .bottom, .leading, .trailing], 10)
+                            
+                        }
+                        .background(.orange)
+                        .opacity(story.read ?? false ? 0.4 : 0.8)
+                        .cornerRadius(15)
                     }
-                    .background(.orange)
-                    .opacity(0.6)
-                    .cornerRadius(15)
                 }
+                .padding([.leading, .trailing], 10)
             }
-            .padding([.leading, .trailing], 10)
         }
         .listStyle(GroupedListStyle())
         // Show alert if request error occurs on a published property `fetchError`
