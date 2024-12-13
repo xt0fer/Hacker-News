@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CAB0E6E2D0C7711003BE228 /* BrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB0E6D2D0C7711003BE228 /* BrowserViewModel.swift */; };
+		5CAB0E6F2D0C7711003BE228 /* BrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB0E6D2D0C7711003BE228 /* BrowserViewModel.swift */; };
+		5CAB0E702D0C7711003BE228 /* BrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CAB0E6D2D0C7711003BE228 /* BrowserViewModel.swift */; };
 		AC824A392701C862003776FF /* Hacker_NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC824A382701C862003776FF /* Hacker_NewsApp.swift */; };
 		AC824A402701C864003776FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC824A3F2701C864003776FF /* Preview Assets.xcassets */; };
 		AC824A4A2701C864003776FF /* Hacker_NewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC824A492701C864003776FF /* Hacker_NewsTests.swift */; };
@@ -90,6 +93,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CAB0E6D2D0C7711003BE228 /* BrowserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserViewModel.swift; sourceTree = "<group>"; };
 		AC824A352701C862003776FF /* Hacker News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC824A382701C862003776FF /* Hacker_NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hacker_NewsApp.swift; sourceTree = "<group>"; };
 		AC824A3C2701C864003776FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Hacker News/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
@@ -258,6 +262,7 @@
 				AC824A702701C8A4003776FF /* TopBarStorySourceView.swift */,
 				AC824A6B2701C8A4003776FF /* StoryCellView.swift */,
 				AC824A6D2701C8A4003776FF /* StoryWebView.swift */,
+				5CAB0E6D2D0C7711003BE228 /* BrowserViewModel.swift */,
 				AC824A6E2701C8A4003776FF /* WebView.swift */,
 			);
 			path = Views;
@@ -460,6 +465,7 @@
 				AC824A7C2701C8DC003776FF /* WebView.swift in Sources */,
 				AC824A7A2701C8D5003776FF /* TopBarOptionsView.swift in Sources */,
 				AC824A752701C8C5003776FF /* SettingsModel.swift in Sources */,
+				5CAB0E6E2D0C7711003BE228 /* BrowserViewModel.swift in Sources */,
 				AC824A732701C8BA003776FF /* StoryController.swift in Sources */,
 				AC824A712701C8AB003776FF /* HackerNewsAPI.swift in Sources */,
 				AC824A742701C8BF003776FF /* PersistenceController.swift in Sources */,
@@ -479,6 +485,7 @@
 				AC824A782701C8CD003776FF /* StoryModel.swift in Sources */,
 				AC824A7F2701CB2B003776FF /* StoryController.swift in Sources */,
 				AC824A812701CB31003776FF /* PersistenceController.swift in Sources */,
+				5CAB0E702D0C7711003BE228 /* BrowserViewModel.swift in Sources */,
 				AC824A4A2701C864003776FF /* Hacker_NewsTests.swift in Sources */,
 				AC824A882701CB4E003776FF /* ContentView.swift in Sources */,
 				AC824A862701CB4E003776FF /* StoryCellView.swift in Sources */,
@@ -506,6 +513,7 @@
 				AC824A842701CB38003776FF /* StoryModel.swift in Sources */,
 				AC824A8F2701CB4F003776FF /* WebView.swift in Sources */,
 				AC824A912701CB4F003776FF /* TopBarStorySourceView.swift in Sources */,
+				5CAB0E6F2D0C7711003BE228 /* BrowserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

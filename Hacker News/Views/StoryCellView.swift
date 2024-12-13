@@ -28,6 +28,7 @@ struct StoryCellView: View {
             Text(story.title)
                 .font(.headline)
                 .fontWeight(.heavy)
+                .foregroundColor(.indigo)
                 
             if let url = URL(string: story.url)?.host {
                 Text("\(url)")
