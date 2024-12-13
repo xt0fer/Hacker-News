@@ -64,8 +64,8 @@ struct ContentView: View {
                                 .padding([.top, .bottom, .leading, .trailing], 10)
                             
                         }
-                        .background(.orange)
-                        .opacity(story.read ?? false ? 0.4 : 0.8)
+                        .background(.yellow)
+                        .opacity(story.read ?? false ? 0.4 : 0.9)
                         .cornerRadius(15)
                     }
                 }
@@ -78,7 +78,7 @@ struct ContentView: View {
             Text(storyController.fetchError?.errorDescription ?? "Unknown reason")
         }
         // Present a Sheet View and load the story url
-        .sheet(isPresented: $showWebView, onDismiss: {
+        .fullScreenCover(isPresented: $showWebView, onDismiss: {
             withAnimation {
                 storyController.readStory(story: selectedStory!)
             }

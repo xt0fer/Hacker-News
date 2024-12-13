@@ -23,7 +23,8 @@ struct StoryWebView: View {
     @Binding var story: StoryModel?
     @State var doneLoading: Bool = false
     @State var topBarWidthSize: CGFloat = UIScreen.main.bounds.width
-    
+    @StateObject var browserViewModel = BrowserViewModel()
+
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -33,35 +34,43 @@ struct StoryWebView: View {
             VStack(spacing: 0) {
 
                 ZStack {
-                    
                     // Mocking a top bar to display the story title,
                     // a progress bar activity, and button to launch the story in the device's default browser
-                    Color.orange
+                    Color.yellow
                         .frame(width: geometry.size.width, height: 75)
                     
                     HStack {
-                        
-                        // Add a button to dismiss the view if we are in landscape mode
-                        // because Sheet Views in landscape are fullscreen.
-                        if geometry.size.width > UIScreen.main.bounds.height {
-                            Button("Close", action: dismiss.callAsFunction)
-                                .foregroundColor(.white)
-                                .padding([.leading,.trailing])
+                        Button(action: {
+                            browserViewModel.goBack()
+                        }) {
+                            Image(systemName: "chevron.backward")
                         }
-                        
-                        Text(story!.title).padding(.leading)
-                            .foregroundColor(.white)
-                        
+                        .foregroundColor(.indigo)
+                        .disabled(!browserViewModel.canGoBack)
+
+//                        Button(action: {
+//                            browserViewModel.goForward()
+//                        }) {
+//                            Image(systemName: "chevron.forward")
+//                        }
+//                        .foregroundColor(.indigo)
+//                        .disabled(!browserViewModel.canGoForward)
+
+                        if let storyTitle = story?.title {
+                            Text(storyTitle).padding(.leading)
+                                .foregroundColor(.indigo)
+                        }
                         Spacer()
-                        
+                        Button(action: dismiss.callAsFunction){
+                            Image(systemName: "xmark")
+                        }
+                        .foregroundColor(.indigo)
+                                .padding([.leading,.trailing])
                         ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                            .progressViewStyle(CircularProgressViewStyle(tint: .indigo))
                             .padding(.trailing, 3)
                             .opacity(doneLoading ? 0:1)
-                        
-                        // Allows the user to launch the link associated
-                        // with the article in their browser
-                        Button {
+                        Button { //launch
                             if let strURL = story?.url, let url = URL(string: strURL)  {
                                 UIApplication.shared.open(url)
                             }
@@ -69,18 +78,21 @@ struct StoryWebView: View {
                             Image(systemName: "safari")
                                 .resizable()
                                 .frame(width: 25, height: 25)
-                                .foregroundColor(.white)
+                                .foregroundColor(.indigo)
                         }
                         .padding(.trailing)
-                        
                     }
-                    
                 }
                 .frame(maxWidth:.infinity)
-
                 // Custom in-browser view to load the story article
-                WebView(finished: $doneLoading, urlString: story?.url)
-
+//                WebView(finished: $doneLoading, urlString: story?.url)
+//                    .frame(maxWidth:.infinity)
+                
+                if let urlString = story?.url, let url = URL(string: urlString) {
+                    BrowserWebView(url: url,
+                                   viewModel: browserViewModel)
+                    .edgesIgnoringSafeArea(.all)
+                }
             }
             
         }
