@@ -40,6 +40,7 @@ struct StoryWebView: View {
                         .frame(width: geometry.size.width, height: 75)
                     
                     HStack {
+                        Spacer()
                         Button(action: {
                             browserViewModel.goBack()
                         }) {
@@ -66,10 +67,10 @@ struct StoryWebView: View {
                         }
                         .foregroundColor(.indigo)
                                 .padding([.leading,.trailing])
-                        ProgressView()
-                            .progressViewStyle(CircularProgressViewStyle(tint: .indigo))
-                            .padding(.trailing, 3)
-                            .opacity(doneLoading ? 0:1)
+//                        ProgressView()
+//                            .progressViewStyle(CircularProgressViewStyle(tint: .indigo))
+//                            .padding(.trailing, 3)
+//                            .opacity(doneLoading ? 0:1)
                         Button { //launch
                             if let strURL = story?.url, let url = URL(string: strURL)  {
                                 UIApplication.shared.open(url)
@@ -91,12 +92,13 @@ struct StoryWebView: View {
                 if let urlString = story?.url, let url = URL(string: urlString) {
                     BrowserWebView(url: url,
                                    viewModel: browserViewModel)
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea(.all, edges: .bottom)
+                    //.edgesIgnoringSafeArea(.all)
                 }
             }
-            
+            //.padding(.top)
         }
-        .ignoresSafeArea()
+        //.ignoresSafeArea()
     }
 }
 
